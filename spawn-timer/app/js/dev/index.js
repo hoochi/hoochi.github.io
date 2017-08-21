@@ -1,10 +1,11 @@
 (function(index,$){
    $(function() {
       initSelect();
-      $('.btn-reset').on('click', onReset);
-      $('body').on('click', '.btn-go', go);
-      $('body').on('click', '.btn-stop', stop);
-      $('body').on('click', '.btn-sound', toggleSound);
+      $(".btn-reset").on("click", onReset);
+      $("body")
+         .on("click", ".btn-go", go)
+         .on("click", ".btn-stop", stop)
+         .on("click", ".btn-sound", toggleSound);
    });
 
    var _myTime = null,
@@ -22,20 +23,16 @@
       }
 
       var $source = $(this)
-         .closest('.input-group')
-         .find('select');
+         .closest(".input-group")
+         .find("select");
 
-      var target = $source.attr('data-type');
       var time = $source.val();
 
-      if(target === 'me') {
+      if($source.attr("data-type") === "me") {
          _myTimeValue = _myTime = time;
       }
-      else if (target === 'enemy') {
-         _enemyTimeValue = _enemyTime = time;
-      }
       else {
-         throw "Invalid target type";
+         _enemyTimeValue = _enemyTime = time;
       }
 
       setTimerText();
@@ -44,14 +41,14 @@
 
 
    initSelect = function() {
-      var $myTime = $('#myTimeValue');
-      var $enemyTime = $('#enemyTimeValue');
+      var $myTime = $("#myTimeValue");
+      var $enemyTime = $("#enemyTimeValue");
       for(var i = 10; i <= 40; i++) {
-         var $option = $('<option>')
+         var $option = $("<option>")
             .val(i)
             .text(i.toString());
 
-         if(i === 25) { $option.attr('selected', 'selected'); }
+         if(i === 25) { $option.attr("selected", "selected"); }
 
          $myTime.append($option);
          $enemyTime.append($option.clone());
@@ -75,8 +72,8 @@
    };
 
    onTimer = function() {
-      var meWarning = parseInt($('#meWarning').val());
-      var enemyWarning = parseInt($('#enemyWarning').val());
+      var meWarning = parseInt($("#meWarning").val());
+      var enemyWarning = parseInt($("#enemyWarning").val());
 
       if(_myTime !== null) {
          _myTime--;
@@ -105,20 +102,20 @@
 
    onReset = function(e) {
       if(_timer === null) { return; }
-      switch($(this).attr('data-type')) {
-         case 'me':
-            _myTime = _myTimeValue;
-            break;
-         case 'enemy':
-            _enemyTime = _enemyTimeValue;
-            break;
+
+      if($(this).attr("data-type") === "me") {
+         _myTime = _myTimeValue;
       }
+      else {
+         _enemyTime = _enemyTimeValue;
+      }
+
       setTimerText();
    };
 
    toggleSound = function(e) {
       var $source = $(this);
-      var state = !$source.hasClass('active');
+      var state = !$source.hasClass("active");
 
       if($source.attr('data-type') === "me") {
          _meSoundEnabled = state;
