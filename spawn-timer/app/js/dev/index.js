@@ -6,6 +6,7 @@
          .on("click", ".btn-go", go)
          .on("click", ".btn-stop", stop)
          .on("click", ".btn-sound", toggleSound);
+      $('#vol').on('change', volChanged);
    });
 
    var _myTime = null,
@@ -14,7 +15,12 @@
       _myTimeValue = null,
       _enemyTimeValue = null,
       _meSoundEnabled = true,
-      _enemySoundEnabled = true;
+      _enemySoundEnabled = true,
+      _vol = 0.5;
+
+   volChanged = function(e) {
+      _vol = parseFloat($(this).val());
+   };
 
    go = function(e) {
       if(_timer !== null) {
@@ -78,14 +84,14 @@
       if(_myTime !== null) {
          _myTime--;
          if(_meSoundEnabled && _myTime === meWarning) {
-            playMeSound();
+            playSound("meSound");
          }
       }
 
       if(_enemyTime !== null) {
          _enemyTime--;
          if(_enemySoundEnabled && _enemyTime === enemyWarning) {
-            playEnemySound();
+            playSound("enemySound");
          }
       }
 
@@ -125,11 +131,9 @@
       }
    };
 
-   playMeSound = function() {
-      document.getElementById("meSound").play();
-   };
-
-   playEnemySound = function() {
-      document.getElementById("enemySound").play();
+   playSound = function(sound) {
+      var sound = document.getElementById(sound);
+      sound.volume = _vol;
+      sound.play();
    };
 }(window.index = window.index || {}, jQuery));
