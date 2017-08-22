@@ -95,8 +95,8 @@
          }
       }
 
-      if(_myTime < 1) _myTime = _myTimeValue;
-      if(_enemyTime < 1) _enemyTime = _enemyTimeValue;
+      if(_myTime < 0) _myTime = _myTimeValue;
+      if(_enemyTime < 0) _enemyTime = _enemyTimeValue;
 
       setTimerText();
    };
