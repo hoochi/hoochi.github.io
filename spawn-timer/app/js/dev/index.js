@@ -32,7 +32,7 @@
          .closest(".input-group")
          .find("select");
 
-      var time = $source.val();
+      var time = $source.val() - 1;
 
       if($source.attr("data-type") === "me") {
          _myTimeValue = _myTime = time;
