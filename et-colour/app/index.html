@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title></title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css">
+      <link rel="stylesheet" href="./css/master.min.css">
+
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+   </head>
+   <body>
+      <div class="container">
+         <div class="row">
+            <div class="col-xs-12">
+               <p>Javascript Wolfenstein: Enemy Territory colour name builder. Uses the 32 colours defined in the game engine. The colours (and codes) below have been lifted directly from the game's <a href="https://github.com/id-Software/Enemy-Territory/blob/master/src/game/q_math.c#L68" target="_blank">source code</a>.</p>
+               <p>Source code is available <a href="https://github.com/hoochi/hoochi.github.io" target="_blank">here</a>. Feel free to steal and improve. <small class="text-muted">NB: This has only really been tested in Chrome; I'm a bit lazy like that =D</small></p>
+            </div>
+         </div>
+         <hr />
+         <div class="row">
+            <div class="col-xs-12">
+               <div class="form-group">
+                 <div class="input-group">
+                    <span class="input-group-btn">
+                       <button type="button" class="btn btn-info" id="demo">
+                          <span class="glyphicon glyphicon-question-sign"></span>
+                       </button>
+                    </span>
+                    <input type="text" class="form-control" id="name" placeholder="Enter text here...">
+                    <span class="input-group-btn">
+                       <button type="button" class="btn btn-danger btn-clear-addon" data-toggle="tooltip" title="Clear">
+                          <span class="glyphicon glyphicon-remove"></span>
+                       </button>
+                   </span>
+                 </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-xs-6">
+               <div class="output" id="light"></div>
+            </div>
+            <div class="col-xs-6">
+               <div class="output" id="dark"></div>
+            </div>
+         </div>
+
+         <div class="row" id="colourControls"></div>
+
+         <hr />
+         <div class="row">
+            <div class="col-xs-6">
+               <a href="printable-ascii.html">Printable ASCII Table (nerd stuff)</a>
+            </div>
+            <div class="col-xs-6">
+               <div class="text-right" id="tag">
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" charset="utf-8"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.min.js" charset="utf-8"></script>
+      <script src="./js/et.min.js" charset="utf-8"></script>
+      <script src="./js/index.min.js" charset="utf-8"></script>
+   </body>
+</html>
