@@ -1,0 +1,38 @@
+{
+  "name": "spawn-timer",
+  "version": "0.0.2",
+  "description": "A simple timer to keep track of spawn times.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoochi/hoochi.github.io.git"
+  },
+  "author": "#hoochi",
+  "license": "WTFPL",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^4.0.2",
+    "gulp-minify": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.2.1",
+    "sass": "^1.32.8"
+  },
+  "bugs": {
+    "url": "https://hoochi.github.io"
+  },
+  "homepage": "https://hoochi.github.io",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "autoprefixer": "^10.2.5",
+    "browsersync": "0.0.1-security",
+    "cssnano": "^4.1.10",
+    "del": "^6.0.0",
+    "eslint": "^7.23.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.0",
+    "postcss": "^8.2.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
