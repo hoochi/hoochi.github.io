@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Timer</title>
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootswatch/3.3.7/slate/bootstrap.min.css">
+   <link rel="stylesheet" href="./css/master.min.css">
+
+   <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+   <![endif]-->
+</head>
+<body>
+   <div class="container">
+      <div class="row">
+         <div class="col-xs-12">
+            <h3 class="text-danger">Spawn Timer <small>Helping plebs keep track of their spawn time</small></h3>
+         </div>
+      </div>
+      <br />
+      <div class="row">
+         <div class="col-xs-6">
+            <div class="form-group">
+               <label for="vol">Volume</label>
+               <select class="form-control input-sm" id="vol">
+                  <option value="0.05">5%</option>
+                  <option value="0.1">10%</option>
+                  <option value="0.2">20%</option>
+                  <option value="0.3">30%</option>
+                  <option value="0.4">40%</option>
+                  <option value="0.5" selected>50%</option>
+                  <option value="0.6">60%</option>
+                  <option value="0.7">70%</option>
+                  <option value="0.8">80%</option>
+                  <option value="0.9">90%</option>
+                  <option value="1.0">100%</option>
+               </select>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-xs-6">
+            <div class="input-group">
+               <select class="form-control time-select" id="timeValue"></select>
+               <span class="input-group-btn">
+                  <button type="button" class="btn btn-success btn-go">
+                     <span class="glyphicon glyphicon-play"></span>
+                  </button>
+               </span>
+            </div>
+         </div>
+      </div>
+      <br/>
+      <div class="row">
+         <div class="col-xs-6">
+            <div class="panel panel-default">
+               <div class="panel-heading">
+                  <div class="panel-title"><strong>Spawn Timer</strong></div>
+               </div>
+               <div class="panel-body">
+                  <div class="form-group">
+                     <label for="warning">Warn At <small>(seconds before spawn)</small></label>
+                     <select class="form-control input-sm" id="warning">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected>5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                     </select>
+                  </div>
+                  <div class="text-center">
+                     <span id="myTime" class="panel-timer">--</span>
+                  </div>
+               </div>
+               <div class="panel-footer">
+                  <div class="row">
+                     <div class="col-xs-4">
+                        <button class="btn btn-sm btn-stop btn-danger">
+                           <span class="glyphicon glyphicon-stop"></span>
+                        </button>
+                     </div>
+                     <div class="col-xs-4">
+                        <div class="text-center">
+                           <button class="btn btn-sm btn-default btn-reset">
+                              <span class="glyphicon glyphicon-refresh"></span>
+                           </button>
+                        </div>
+                     </div>
+                     <div class="col-xs-4">
+                        <div class="text-right">
+                           <button type="button" class="btn btn-sm btn-default btn-sound active" data-toggle="button">
+                              <span class="glyphicon glyphicon-music"></span>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col-xs-6 text-right">
+            <div class="tag">
+               <span class="tag-hash">#</span><span class="tag-text">hoochi</span>
+            </div>
+         </div>
+      </div>
+   </div>
+   <audio id="sound" src="./sounds/chime_bell_ding.wav" autostart="false"></audio>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script src="./js/index.min.js" charset="utf-8"></script>
+</body>
+</html>
