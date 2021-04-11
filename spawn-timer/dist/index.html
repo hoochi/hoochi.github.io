@@ -4,101 +4,125 @@
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>Timer</title>
+   <base href="/">
+   <title>Hoochi's Spawn Timer</title>
 
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootswatch/3.3.7/slate/bootstrap.min.css">
-   <link rel="stylesheet" href="./css/master.min.css">
-
-   <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-   <![endif]-->
+   <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha256-T/zFmO5s/0aSwc6ics2KLxlfbewyRz6UNw1s3Ppf5gE=" crossorigin="anonymous">-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/slate/bootstrap.min.css" integrity="sha256-HWVg3zL3fw4CcLn1pHUm5i+ZzZpl5Qu/ZMq9vAi02Kg=" crossorigin="anonymous">
+   <link rel="stylesheet" href="lib/fontawesome/css/all.min.css">
+   <link rel="stylesheet" href="css/master.min.css">
 </head>
 <body>
    <div class="container">
-      <div class="row">
-         <div class="col-xs-12">
-            <h3 class="text-danger">Spawn Timer <small>Helping plebs keep track of their spawn time</small></h3>
+      <div class="row justify-content-center row-margin-top">
+         <div class="col-12 col-lg-6">
+            <h3 class="text-danger">Hoochi's Spawn Timer</h3>
+            <span class="text-muted">Helping plebs keep track of their spawn time</span>
          </div>
       </div>
-      <br />
-      <div class="row">
-         <div class="col-xs-6">
-            <div class="form-group">
-               <label for="vol">Volume</label>
-               <select class="form-control input-sm" id="vol">
-                  <option value="0.05">5%</option>
-                  <option value="0.1">10%</option>
-                  <option value="0.2">20%</option>
-                  <option value="0.3">30%</option>
-                  <option value="0.4">40%</option>
-                  <option value="0.5" selected>50%</option>
-                  <option value="0.6">60%</option>
-                  <option value="0.7">70%</option>
-                  <option value="0.8">80%</option>
-                  <option value="0.9">90%</option>
-                  <option value="1.0">100%</option>
-               </select>
-            </div>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-xs-6">
-            <div class="input-group">
-               <select class="form-control time-select" id="timeValue"></select>
-               <span class="input-group-btn">
-                  <button type="button" class="btn btn-success btn-go">
-                     <span class="glyphicon glyphicon-play"></span>
-                  </button>
-               </span>
-            </div>
-         </div>
-      </div>
-      <br/>
-      <div class="row">
-         <div class="col-xs-6">
-            <div class="panel panel-default">
-               <div class="panel-heading">
-                  <div class="panel-title"><strong>Spawn Timer</strong></div>
+
+      <div class="row justify-content-center row-margin-top">
+         <div class="col-12 col-lg-6">
+            <div class="card">
+               <div class="card-header text-white bg-danger">
+                  <strong>Settings</strong>
                </div>
-               <div class="panel-body">
-                  <div class="form-group">
-                     <label for="warning">Warn At <small>(seconds before spawn)</small></label>
-                     <select class="form-control input-sm" id="warning">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5" selected>5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                     </select>
-                  </div>
-                  <div class="text-center">
-                     <span id="myTime" class="panel-timer">--</span>
-                  </div>
-               </div>
-               <div class="panel-footer">
+               <div class="card-body">
                   <div class="row">
-                     <div class="col-xs-4">
-                        <button class="btn btn-sm btn-stop btn-danger">
-                           <span class="glyphicon glyphicon-stop"></span>
+                     <div class="col">
+                        <div class="form-group">
+                           <label for="vol">Volume</label>
+                           <select class="form-control form-control-sm" id="vol">
+                           <option value="0.05">5%</option>
+                           <option value="0.1">10%</option>
+                           <option value="0.2">20%</option>
+                           <option value="0.3">30%</option>
+                           <option value="0.4">40%</option>
+                           <option value="0.5" selected>50%</option>
+                           <option value="0.6">60%</option>
+                           <option value="0.7">70%</option>
+                           <option value="0.8">80%</option>
+                           <option value="0.9">90%</option>
+                           <option value="1.0">100%</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col">
+                        <div class="form-group">
+                           <label for="timeValue">Spawn Period <small>(in seconds)</small></label>
+                           <select class="form-control form-control-sm time-select" id="timeValue"></select>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col">
+                        <div class="form-group">
+                           <label for="warning">Warn At <small>(seconds before spawn)</small></label>
+                           <select class="form-control form-control-sm" id="warning">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6" selected>6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col">
+                        <div class="form-check">
+                           <input type="checkbox" id="_countsToZero" class="form-check-input" />
+                           <label for="_countsToZero" class="form-check-label">Counts Down to Zero<br />
+                              <small>Some games count down to 1, others count down to to 0</small>
+                           </label>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row">
+                     <div class="col">
+                        <div class="form-group">
+                           <div class="text-center">
+                              <span id="myTime" class="panel-timer">--</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+
+               <div class="card-footer">
+                  <div class="row">
+                     <div class="col text-center">
+                        <button type="button" id="_go" class="btn btn-sm btn-success">
+                           <i class="fas fa-play"></i>
                         </button>
                      </div>
-                     <div class="col-xs-4">
-                        <div class="text-center">
-                           <button class="btn btn-sm btn-default btn-reset">
-                              <span class="glyphicon glyphicon-refresh"></span>
-                           </button>
-                        </div>
+
+                     <div class="col text-center">
+                        <button id="_stop" class="btn btn-sm btn-danger">
+                           <i class="fas fa-stop"></i>
+                        </button>
                      </div>
-                     <div class="col-xs-4">
-                        <div class="text-right">
-                           <button type="button" class="btn btn-sm btn-default btn-sound active" data-toggle="button">
-                              <span class="glyphicon glyphicon-music"></span>
-                           </button>
-                        </div>
+            
+                     <div class="col text-center">
+                        <button id="_sync" class="btn btn-sm btn-reset btn-info">
+                           <i class="fas fa-sync"></i>
+                        </button>
+                     </div>
+            
+                     <div class="col text-center">
+                        <button id="_mute" class="btn btn-sm btn-active text-light" data-toggle="button">
+                           <i id="_muteIcon" class="fas fa-volume-up"></i>
+                        </button>
                      </div>
                   </div>
                </div>
@@ -106,17 +130,19 @@
          </div>
       </div>
 
-      <div class="row">
-         <div class="col-xs-6 text-right">
+      <div class="row justify-content-center row-margin-top">
+         <div class="col-12 col-lg-6 text-right">
             <div class="tag">
-               <span class="tag-hash">#</span><span class="tag-text">hoochi</span>
+               <span class="tag-pink">#</span><span class="tag-white">hoochi</span><span class="tag-pink">loves</span><span class="tag-white">you</span>
             </div>
          </div>
       </div>
    </div>
    <audio id="sound" src="./sounds/chime_bell_ding.wav" autostart="false"></audio>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/combine/npm/jquery@3.6.0,npm/bootstrap@4.6.0,npm/popper.js@1.16.1"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha256-7dA7lq5P94hkBsWdff7qobYkp9ope/L5LQy2t/ljPLo=" crossorigin="anonymous"></script>
    <script src="./js/index.min.js" charset="utf-8"></script>
 </body>
 </html>
