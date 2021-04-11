@@ -2,19 +2,25 @@
    $(function() {
       initSelect();
 
-      $(".btn-reset").on("click", onReset);
-      $("body")
-         .on("click", ".btn-go", go)
-         .on("click", ".btn-stop", stop)
-         .on("click", ".btn-sound", toggleSound);
       $("#vol").on("change", volChanged);
+
+      $("#_go").on("click", go);
+      $("#_stop").on("click", stop);
+      $("#_sync").on("click", sync);
+      $("#_mute").on("click", mute);
+      $("#_countsToZero").on("change", onCountsToZero);
    });
 
-   var _time = null,
+   var
+      _time = null,
       _timer = null,
       _timeValue = null,
       _soundEnabled = true,
       _vol = parseFloat($("#vol").val());
+
+   onCountsToZero = function(e) {
+      stop();
+   }
 
    volChanged = function(e) {
       _vol = parseFloat($(this).val());
@@ -26,11 +32,11 @@
         _timer = null;
       }
 
-      var $source = $(this)
-         .closest(".input-group")
-         .find("select");
+      var countsToZero = $("#_countsToZero").is(":checked");
 
-      var time = $source.val() - 1;
+      var time = countsToZero
+         ? $("#timeValue").val() - 1
+         : $("#timeValue").val();
 
       _timeValue = _time = time;
 
@@ -73,26 +79,55 @@
          }
       }
 
-      if(_time < 0) { _time = _timeValue; }
+      var comparison = $("#_countsToZero").is(":checked") ? 0 : 1;
+      if(_time < comparison) {
+         _time = _timeValue;
+      }
 
       setTimerText();
    };
 
    setTimerText = function() {
-      $("#myTime").text((_time !== null) ? _time : "--");
+      var str = "";
+
+      if(_time !== null) {
+         str = _time.toString();
+         if(str.length < 2) { str = "0" + str; }
+      }
+      else {
+         str = "--";
+      }
+
+      $("#myTime").text(str);
    };
 
-   onReset = function(e) {
+
+   sync = function(e) {
       if(_timer === null) { return; }
       _time = _timeValue;
       setTimerText();
    };
 
-   toggleSound = function(e) {
+
+   mute = function(e) {
       var $source = $(this);
-      var state = !$source.hasClass("active");
-      _soundEnabled = state;
+
+      if($source.hasClass("btn-active")) {
+         _soundEnabled = false;
+         $source.removeClass("btn-active");
+         $("#_muteIcon")
+            .removeClass("fa-volume-up text-light")
+            .addClass("fa-volume-mute text-muted");
+      }
+      else {
+         _soundEnabled = true;
+         $source.addClass("btn-active");
+         $("#_muteIcon")
+            .removeClass("fa-volume-mute text-muted")
+            .addClass("fa-volume-up text-light");
+      }
    };
+
 
    playSound = function(sound) {
       var sound = document.getElementById(sound);

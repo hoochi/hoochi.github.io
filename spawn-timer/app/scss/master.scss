@@ -1,7 +1,9 @@
 .panel-timer {
-   min-height: 100px !important;
-   font-size: 600%;
+   font-family: monospace;
+   font-size: 800%;
    text-align: center;
+   font-weight: bold;
+   text-shadow: 5px 5px #222;
 }
 
 .tag {
@@ -10,11 +12,14 @@
    font-size: 14pt;
 }
 
-.tag-hash {
+.tag-pink {
    color: rgb(255, 0, 51);
 }
 
-.tag-text {
+.tag-white {
    color: #fff;
 }
 
+.row-margin-top {
+   margin-top: 1em;
+}
