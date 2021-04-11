@@ -94,12 +94,17 @@ function watchFiles() {
    gulp.watch("./app/*.html", gulp.series(copyHtml,browserSyncReload));
 }
 
+function libs() {
+   return gulp
+      .src("app/lib/**/*", { base: './app'})
+      .pipe(gulp.dest("./dist/"));
+}
 
 
  // complex tasks
 const build = gulp.series(
    clean,
-   gulp.parallel(copyHtml,copySounds,copyStatic),
+   gulp.parallel(copyHtml,copySounds,copyStatic,libs),
    gulp.parallel(css, gulp.series(lintJS,minJS)),
    gulp.parallel(watchFiles,browserSync));
 
