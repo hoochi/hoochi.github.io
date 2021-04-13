@@ -12,12 +12,16 @@
    font-size: 14pt;
 }
 
+$tag-shadow: 2px 2px #000;
+
 .tag-pink {
    color: rgb(255, 0, 51);
+   text-shadow: $tag-shadow;
 }
 
 .tag-white {
    color: #fff;
+   text-shadow: $tag-shadow;
 }
 
 .row-margin-top {
