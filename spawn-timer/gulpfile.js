@@ -105,10 +105,16 @@ function libs() {
 const build = gulp.series(
    clean,
    gulp.parallel(copyHtml,copySounds,copyStatic,libs),
+   gulp.parallel(css, gulp.series(lintJS,minJS)));
+
+const buildSync = gulp.series(
+   clean,
+   gulp.parallel(copyHtml,copySounds,copyStatic,libs),
    gulp.parallel(css, gulp.series(lintJS,minJS)),
    gulp.parallel(watchFiles,browserSync));
 
 // exported tasks
 exports.clean = clean;
 exports.default = build;
+exports.buildSync = buildSync;
 

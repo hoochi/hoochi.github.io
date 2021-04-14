@@ -6,7 +6,6 @@
 
       $("#_go").on("click", go);
       $("#_stop").on("click", stop);
-      $("#_sync").on("click", sync);
       $("#_mute").on("click", mute);
       $("#_countsToZero").on("change", onCountsToZero);
    });
@@ -99,13 +98,6 @@
       }
 
       $("#myTime").text(str);
-   };
-
-
-   sync = function(e) {
-      if(_timer === null) { return; }
-      _time = _timeValue;
-      setTimerText();
    };
 
 
