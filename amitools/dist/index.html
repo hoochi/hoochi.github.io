@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Hoochi's AmiTools</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.6.0/dist/cyborg/bootstrap.min.css" integrity="sha256-tAZ8i+EPV2DBVxnPnao5YTFDLRlih1VC2Xv4YC96EAQ=" crossorigin="anonymous">      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-confirm@3.3.4/dist/jquery-confirm.min.css" integrity="sha256-b1ReresCHd4KO/p68QjPheEmGipFsg5FH4S43awZ9D8=" crossorigin="anonymous">      
+      <link rel="stylesheet" href="css/master.min.css" />
+   </head>
+   <body>
+      <div class="container">
+         <ul class="nav nav-tabs">
+            <li class="nav-item">
+               <a class="nav-link active" data-toggle="tab" href="#about">about</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#bltsizeTab">bltsize</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#dmaconTab">dmacon</a>
+             </li>
+              <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#bltcon0Tab">bltcon0</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#bplcon0Tab">bplcon0</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" data-toggle="tab" href="#rips">Ripped Stuff</a>
+             </li>
+         </ul>
+
+          <div class="tab-content amireg-container">
+            <div class="tab-pane active" id="about">
+               <div class="row mt-3">
+                  <div class="col-12">
+                     <div class="media">
+                        <img src="content/images/feelsbadman.png" alt="feelsbadman" class="align-self-top mr-3" width="128" height="128" />
+                        <div class="media-body">
+                           <p>As a <span class="text-monospace text-success">turbonerd</span>, I love messing around with computery stuff.</p>
+                           <p>Sometimes, purely out of interest, I may disassemble an old amiga demo or cracktro, y'know, for... fun.</p>
+                           <p>This little app helps me to do it faster. That's it.</p>
+                           <p>Here's a picture of a cracktro for 'mayzing fun:</p>
+                        </div>
+                     </div>
+                     <div class="text-center">
+                        <img class="img-fluid" src="./content/images/hoodlum-cracktro.jpg" alt="cracktro image" />
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+
+            <div class="tab-pane" id="bltsizeTab">
+               <div class="row mt-3">
+                  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                     <div class="form-group">
+                        <label class="control-label">Register Value</label>
+                        <input id="bltsize" type="text" class="form-control form-control-sm" />
+                     </div>
+                  </div>
+                  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                     <div class="form-group">
+                        <label class="control-label">Width (pixels)</label>
+                        <input id="width" type="text" maxlength="4" class="form-control form-control-sm" value="0" />
+                     </div>
+                  </div>
+                  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                     <div class="form-group">
+                        <label class="control-label">Height (pixels)</label>
+                        <input id="height" type="text" maxlength="4" class="form-control form-control-sm" value="0" />
+                     </div>
+                  </div>
+                  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                     <div class="form-group">
+                        <label class="control-label">Total (bytes)</label>
+                        <input id="total" type="number" class="form-control form-control-sm" value="0" readonly="readonly" />
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="tab-pane" id="dmaconTab">
+               <div class="row mt-3">
+                  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                     <div class="form-group">
+                        <label class="control-label">Register Value</label>
+                        <input id="_dmacon" type="text" class="form-control form-control-sm" />
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-12">
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconSETCLR" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconSETCLR" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Set/Clear control bit">SETCLR</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconBBUSY" type="checkbox" class="form-check-input" disabled />
+                        <label for="_dmaconBBUSY" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Blitter busy status bit (read only)">BBUSY</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconBZERO" type="checkbox" class="form-check-input" disabled />
+                        <label for="_dmaconBZERO" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Blitter logic zero status bit (read only)">BZERO</label>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-12">
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconX1" type="checkbox" class="form-check-input" disabled />
+                        <label for="_dmaconX1" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Unused">X</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconX2" type="checkbox" class="form-check-input" disabled />
+                        <label for="_dmaconX2" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Unused">X</label>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-12">
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconBLTPRI" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconBLTPRI" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Blitter DMA priority (over CPU micro) also called 'Blitter Nasty'. Disables /BLS pin, preventing micro from stealing any bus cycles while blitter DMA is runnin">BLTPRI</label>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-12">
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconDMAEN" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconDMAEN" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Enable all DMA">DMAEN</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconBPLEN" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconBPLEN" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Bit Plane DMA Enable">BPLEN</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconCOPEN" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconCOPEN" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Copper DMA Enable">COPEN</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconBLTEN" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconBLTEN" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="blitter DMA Enable">BLTEN</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconSPREN" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconSPREN" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Sprite DMA Enable">SPREN</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconDSKEN" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconDSKEN" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Disk DNA Enable">DSKEN</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconAUD3" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconAUD3" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Audio Channel 3 DMA Enable">AUD3EN</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconAUD2" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconAUD2" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Audio Channel 2 DMA Enable">AUD2EN</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconAUD1" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconAUD1" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Audio Channel 1 DMA Enable">AUD1EN</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dmaconAUD0" type="checkbox" class="form-check-input" />
+                        <label for="_dmaconAUD0" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Audio Channel 0 DMA Enable">AUD0EN</label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+
+            <div class="tab-pane" id="bltcon0Tab">
+               <div class="row mt-3">
+                  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                     <div class="form-group">
+                        <label class="control-label">Register Value</label>
+                        <input id="_bltcon0" type="text" class="form-control form-control-sm" />
+                     </div>
+                  </div>
+
+                  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                     <div class="form-group">
+                        <label class="control-label">Shift</label>
+                        <input id="_ash" type="text" maxlength="2" class="form-control form-control-sm" />
+                     </div>
+                  </div>
+
+                  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                     <div class="form-group">
+                        <label for="_logic" class="control-label">Logic Function</label>
+                        <input id="_logic" type="text" class="form-control form-control-sm" value="0" />
+                     </div>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-12">
+                     <div class="form-check form-check-inline">
+                        <input id="_srca" type="checkbox" class="form-check-input" data-source="800" />
+                        <label for="_srca" class="form-check-label">Source A</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_srcb" type="checkbox" class="form-check-input" data-source="400" />
+                        <label for="_srcb" class="form-check-label">Source B</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_srcc" type="checkbox" class="form-check-input" data-source="200" />
+                        <label for="_srcc" class="form-check-label">Source C</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_srcd" type="checkbox" class="form-check-input" data-source="100" />
+                        <label for="_srcd" class="form-check-label">Source D</label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+
+            <div class="tab-pane" id="bplcon0Tab">
+               <div class="row mt-3">
+                  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                     <div class="form-group">
+                        <label class="control-label">Register Value</label>
+                        <input id="_bplcon0" type="text" class="form-control form-control-sm" />
+                     </div>
+                  </div>
+                  <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                     <div class="form-group">
+                        <label for="_bpu" class="control-label">Bitplane Count</label>
+                        <select id="_bpu" class="form-control form-control-sm">
+                           <option value="0" selected="selected">0</option>
+                           <option value="1">1</option>
+                           <option value="2">2</option>
+                           <option value="3">3</option>
+                           <option value="4">4</option>
+                           <option value="5">5</option>
+                           <option value="6">6</option>
+                        </select>
+                     </div>
+                  </div>
+               </div>               
+
+               <div class="row">
+                  <div class="col-12">
+                     <div class="form-check form-check-inline">
+                        <input id="_hires" type="checkbox" class="form-check-input" />
+                        <label for="_hires" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="High resolution mode.">High Res</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_ham" type="checkbox" class="form-check-input" />
+                        <label for="_ham" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Hold and modify mode.">HAM</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_dpf" type="checkbox" class="form-check-input" />
+                        <label for="_dpf" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Double playfield mode.">Double Playfield</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_color" type="checkbox" class="form-check-input" />
+                        <label for="_color" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Enables color burst output signal">Color</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_gaud" type="checkbox" class="form-check-input" />
+                        <label for="_gaud" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Genlock audio enable.">GUAD</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_uhres" type="checkbox" class="form-check-input" />
+                        <label for="_uhres" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Ultrahi res enable.">UHRES</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_shres" type="checkbox" class="form-check-input" />
+                        <label for="_shres" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Super hi-res mode (35ns pixel width).">SHRES</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_bypass" type="checkbox" class="form-check-input" />
+                        <label for="_bypass" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Bit planes are scrolled and prioritized normally, but bypass color table and 8 bit wide data appear on R(7:0).">Bypass</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_bpu3" type="checkbox" class="form-check-input" />
+                        <label for="_bpu3" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="">BPU3</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_lpen" type="checkbox" class="form-check-input" />
+                        <label for="_lpen" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Light pen enable (reset on power up).">Light Pen</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_lace" type="checkbox" class="form-check-input" />
+                        <label for="_lace" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="Interlace enable (reset on power up).">Interlace</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_ersy" type="checkbox" class="form-check-input" />
+                        <label for="_ersy" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="External resync (HSYNC, VSYNC pads become inputs) (reset on power up).">ERSY</label>
+                     </div>
+                     <div class="form-check form-check-inline">
+                        <input id="_ecsena" type="checkbox" class="form-check-input" />
+                        <label for="_ecsena" class="form-check-label" data-toggle="tooltip" data-placement="bottom" title="When low (default), the following bits in BPLCON3 are disabled: BRDRBLNK,BRDNTRAN,ZDCLKEN,BRDSPRT, and EXTBLKEN. These 5 bits can always be set by writing to BPLCON3, however their effects are inhibited until ECSENA goes high. This allows rapid context switching between pre-ECS viewports and new ones.">ECSENA</label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+           
+
+            <div class="tab-pane" id="rips">
+               <div class="row mt-3">
+                  <div class="col-12">
+                     <p class="lead">Here are some of the files I've ripped directly from cracktros/demos (converted to PNG files).</p>
+                     <p class="text-info">The creator of any media here owns its copyright. If you are that owner and want anything removed, just ask.</p>
+                  </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The bob logo from Oracle's Colony cracktro. 224x60 in 3 bit planes (8 colours).</p>
+                     <img src="content/images/oracleBob.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The font from Oracle's Bomber Bob cracktro. 320x160 in 4 bit planes (16 colours).</p>
+                     <img src="content/images/oracle-balls-font.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">Angel Dawn's famous - and quite excellent - logo for Fairlight; used in lots of productions. 320x142 in 5 bit planes (32 colours).</p>
+                     <img src="content/images/fairlight-angeldawn.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The logo from Skid Row's 3D World Soccer cracktro. 320x58 in 4 bit planes (16 colours).</p>
+                     <img src="content/images/skidrow-3dws.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The logo from Anarchy's Bob intro. 288x73 in 4 bit planes (16 colours).</p>
+                     <img src="content/images/anarchy-bobintro.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The logo from Excel's Demo Disk 15 intro. 320x200 in 4 bit planes (16 colours).</p>
+                     <img src="content/images/excel-demodisk15.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The 'zoom' logo from Anarchy's In the Kitchen demo. 352x30 in 5 bit planes (32 colours).</p>
+                     <img src="content/images/anarchy-itk-zoomlogo.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The ball bobs used in Oracle's Bomber Bob Cracktro. 384x78 in 4 bit planes (16 colours).</p>
+                     <img src="content/images/oracle-balls.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The logo used in Slipstream's Skate Tribe cracktro. 320x84 in 4 bit planes (16 colours).</p>
+                     <img src="content/images/skate.logo.320x84x4.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The logo used in Anarchy's Dolly Mixture 02 intro. 320x65 in 4 bit planes (16 colours).</p>
+                     <img src="content/images/anarchy-dollymixture-logo.320x65x4.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The font used in the end part of Anarchy's In the Kitchen demo. 320x48 in 2 bit planes (4 colours).</p>
+                     <img src="content/images/anarchy-itk-endfont.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The animated bobs used in the end part of Anarchy's In the Kitchen demo. 16x224 in 3 bit planes (8 colours).</p>
+                     <img src="content/images/anarchy-itk-endbobs.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The font used in the 'lovely rasters' part of the Dragons Megademo. 320x152 in 3 bit planes (8 colours).</p>
+                     <img src="content/images/dragons-rastersFont.320x152x3i.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The 'insert disk 2' image used in Hardwired by Crionics. 224x232 in 4 bit planes (16 colours).</p>
+                     <img src="content/images/hw-disk.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The face used in multiple parts of Anarchy's In the Kitchen. 352x178 in 1 bit plane (2 colours).</p>
+                     <img src="content/images/anarchy-itk-face.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The font used in the 'multi scroll' part of the Dragons Megademo. There were 13 colour palettes used for the different scroller colours. 320x160 in 4 bit planes (16 colours).</p>
+                     <img src="content/images/dragons.multiFont.320x160x4.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace mb-5">The font used in Oracle's Colony cracktro. 640x256 in 2 bit planes (4 colours).</p>
+                     <img src="content/images/oracle-colony.font.640x256x2.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The image used in the loader of the Dragons Megademo. 368x245 in 5 bit planes (32 colours).</p>
+                     <img src="content/images/dragons-loader.368x245.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The animated chains from Razor 1991's Kick Reset intro. 576x447 in 2 bit planes (4 colours).</p>
+                     <img src="content/images/kr-chains.576x447x2.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The logo from Razor 1991's Continuum cracktro. 320x70 in 5 bit planes (32 colours).</p>
+                     <img src="content/images/01.logo.320x70x5.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The bobs from the 'unlimited bobs' part of the Dragons Megademo. The original bob is 32x15 in 3 bit planes (8 colours) but this is an image of all bob colours used in the part.</p>
+                     <img src="content/images/DragonBobs.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The font used in the 'perspective scroll' part of Anarchy's In the Kitchen demo. 320x520 in 3 bit planes (8 colours).</p>
+                     <img src="content/images/anarchy-itk-perspectivefont.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The logo from the Splatter House cracktro by Scoopex. 320x58 in 5 bit planes (32 colours).</p>
+                     <img src="content/images/scx-sh.logo.320x58x5.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The logo from the Budokan cracktro by Oracle. 320x86 in 5 bit planes (32 colours).</p>
+                     <img src="content/images/budokan.logo.320x86x5.png" class="img-fluid" />
+                  </div>
+                  <div class="col-12 col-lg-6 mb-5">
+                     <p class="text-monospace">The font from Excel's Demo Disk 15 intro. 16x1024 in 2 bit planes (4 colours).</p>
+                     <img src="content/images/excel-demodisk15-font.16x1024x2.png" class="img-fluid" />
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+         <div class="row mt-3 mb-3">
+            <div class="col-12">
+               <div class="text-right" id="tag">
+                  <span class="text-primary">#</span><span class="text-white">hoochi</span><span class="text-primary">loves</span><span class="text-white">amiga</span>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha256-WgfGn5Bh6xLjmgMTWKT1Z/MKACrWGCY5rIT9G9ovbmU=" crossorigin="anonymous"></script>      
+      <!--<script src="lib/popperjs/umd/popper.min.js" charset="utf-8"></script>-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha256-7dA7lq5P94hkBsWdff7qobYkp9ope/L5LQy2t/ljPLo=" crossorigin="anonymous"></script>      
+      <script src="https://cdn.jsdelivr.net/npm/jquery-confirm@3.3.4/dist/jquery-confirm.min.js" integrity="sha256-ofvu/Oqhm74vuZGlfF1/b4OUWkK/fzlVlAWxkgHr+S4=" crossorigin="anonymous"></script>      
+      <script src="js/jquery.hoochiHexBox.min.js" type="text/javascript"></script>
+      <script src="js/jquery.hoochiMinMaxNumberBox.min.js" type="text/javascript"></script>
+      <script src="js/jquery.hoochiBitCheckBox.min.js" type="text/javascript"></script>
+      <script src="js/index.min.js" charset="utf-9"></script>
+   </body>
+</html>
