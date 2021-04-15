@@ -237,7 +237,6 @@
    };
 
    onDmaconBitChange = function(event, checked, bitMask) {
-      console.log(checked, bitMask);
       var c = getCurrentDmacon();
       $('#_dmacon').val((checked ? c | bitMask : c & bitMask).toString(16));
    }
